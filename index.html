@@ -56,16 +56,12 @@
              "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
              "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
              "    #ambience = {funky,bad,average,good}.\n"+
-            "     #distance= [km][1..20].\n"+
             "     #currentplace= {texastechuniversity}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
               "    vibe(#restaurants, #ambience).\n"+
               "    multipleoutlets(#restaurants).\n"+
-              "    distancefromttu(#address, #distance).\n"+
-              "    nearbylocation(#currentplace, #address).\n"+
-              "    nearbylocationrestaurants(#restaurants).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -96,8 +92,6 @@
               "    vibe(cheesecakefactory, good).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
-              "    nearbylocation(A,X):- distancefromttu(X,Y), Y<km5, Y>km3.\n"+
-              "   -nearbylocation(A,X):- not nearbylocation(A,X).\n"+
               "    starters(street4).";
           
         // sorts
