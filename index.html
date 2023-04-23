@@ -52,20 +52,62 @@
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
-            "    #restaurants = {ihop,braums,canes}.\n" +
-            "    #food ={pancake,icecream,chickenfries}.\n" +
+              "  #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecake_factory}.\n"+
+            "    #condiments={chickfilla_sauce,secret_cane_sauce,chipotle_ranch_sauce, jalepenos,oregano,whippedcream,pancake_syrup}.\n"+
+            "    #appetizer={chicken_nuggets,fries,fish,eggrice,jeerarice, chickenbiryani,naan, pancakes, chickenfajita, chicken_burito,bowls, tacos,sandwhich}.\n"+
+            "    #starters={chillychicken,gobimanchurian}.\n"+
+            "    #deserts={gulab_jamun, mango_lassi}.\n"+
+            "    #icecreams={browniefudge,chocolavacake, birthdaycake,germanchocolate,vanila,hot_chocolate}.\n"+
+            "    #cheesecakes={cookies_cream, coconut_fill, starwberrycake, raspberrycake,pumpkincake,peanutclustercake}.\n"+
+            "    #ambience = {funky,bad,average,good}.\n"+
+            "    #customerservice = {friendly,helpful,good,average,bad}.\n"+
+            "    #cost ={cheap,average,pricey}.\n"+
+            "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
+            "    #rating = [star][1..5].\n"+
+            "    #rush_hours = {morning,afternoon,evening,night}.\n"+
+            "    #currentplace= {texas_tech_univ}.\n"+
+            "    #distance= [km][1..20].\n"+
+            "    #default= d(#restaurants).\n"+
+            "    #holidays={christmas,halloween,easter,new_year,thanksgiving}.\n"+
+            "    #num_time = [am,pm][0..12].\n"+
+            "    #timeoftheday = #num_time+{early_morning,late_morning, early_afternoon,late_afternoon,evening,night}.\n"+
+            "    #daystype =[jan,feb,march,april,may,june,july,aug,sept,oct,nov,dec][1..31].\n"+
+            "    #default1 = d_opens(#restaurants, #daystype).\n"+
             "predicates\n" +
-            "    famousfor(#restaurants, #food).\n" +
-            "    dessert(#food).\n" +
-            "    appetizer(#food).\n" +
-            "    starters(#food).\n" +
+            "    braums_has_menu(#restaurants,#icecreams).\n"+
+            "    cheesecake_has_menu(#restaurants,#cheesecakes).\n"+
+            "    location(#restaurants,#address).\n"+
+            "    has_multiple_outlets(#restaurants).\n"+
+            "    the_vibe(#restaurants, #ambience).\n"+
+            "    money_they_charge(#restaurants, #cost).\n"+
+            "    public_opinion(#restaurants, #customerservice).\n"+
+            "    rating(#restaurants, #rating).\n"+
+            "    peak_time(#restaurants, #rush_hours).\n"+
+            "    nearby_loc(#currentplace, #address).\n"+
+            "    distance_from(#address, #distance).\n"+
+            "    restaurants_in_nearby_loc(#restaurants).\n"+
+            "    ab(#default).\n"+
+            "    is_popular(#restaurants).\n"+
+            "    budget_friendly(#restaurants).\n"+
+            "    rush_hours(#restaurants,#timeoftheday).\n"+
+            "    it_is_difficult_to_get_a_table(#restaurants,#num_time).\n"+
+            "    time(#timeoftheday,#num_time).\n"+
+            "    opens(#restaurants, #daystype).\n"+
+            "    ab1(#default1).\n"+
+            "    eventype(#holidays,#restaurants).\n"+
             "rules\n" +
-            "    famousfor(ihop,pancake).\n" +
-            "    famousfor(braums,icecream).\n" +
-            "    famousfor(canes,chickenfries).\n" +
-            "    dessert(icecream).\n" +
-            "    appetizer(pancake).\n" +
+            "    rating(ihop, star5).rating(braums,star4).\n"+
+            "    rating(royalindia,star3).rating(chickfila,star4).\n"+
+            "    rating(chipotle,star5).rating(papajohns,star3).\n"+
+            "    rating(mcd,star3).rating(spankys,star3).\n"+
+            "    rating(canes,star4).rating(cheesecake_factory,star5).\n"+
+            "    public_opinion(ihop,friendly). public_opinion(braums,helpful).\n"+
+            "    public_opinion(royalindia, good). public_opinion(chickfila,helpful).\n"+
+            "    public_opinion(chipotle, friendly). public_opinion(canes, good).\n"+
+            "    public_opinion(spankys,good). public_opinion(papajohns, average).\n"+
+            "    public_opinion(mcd,good). public_opinion(cheesecake_factory,helpful).\n"+
             "    starters(chickenfries).";
+
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
