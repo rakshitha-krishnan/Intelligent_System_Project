@@ -52,20 +52,14 @@
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
-            "    #restaurants = {ihop,braums,canes}.\n" +
-            "    #food ={pancake,icecream,chickenfries}.\n" +
+            "    #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
+            "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
             "predicates\n" +
-            "    famousfor(#restaurants, #food).\n" +
-            "    dessert(#food).\n" +
-            "    appetizer(#food).\n" +
-            "    starters(#food).\n" +
+              "    location(#restaurants,#address).\n"+
+              "    starters(#address).\n"+
             "rules\n" +
-            "    famousfor(ihop,pancake).\n" +
-            "    famousfor(braums,icecream).\n" +
-            "    famousfor(canes,chickenfries).\n" +
-            "    dessert(icecream).\n" +
-            "    appetizer(pancake).\n" +
-            "    starters(chickenfries).";
+              "    location(#restaurants,#address).\n"+
+              "    starters(street4).";
 
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
