@@ -54,10 +54,12 @@
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
              "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
-            "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
+             "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
+             "    #ambience = {funky,bad,average,good}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
+              "    vibe(#restaurants, #ambience).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -76,6 +78,7 @@
               "    location(chickfila, street14).\n"+
               "    location(papajohns,street5).\n"+
               "    location(cheesecakefactory,street7).\n"+
+             "     vibe(braums,good).\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
