@@ -60,7 +60,6 @@
              "   #icecreams={browniefudge,chocolavacake, birthdaycake,germanchocolate,vanila,hotchocolate}.\n"+
              "   #cheesecakes={cookiescream, coconutfill, starwberrycake, raspberrycake,pumpkincake,peanutclustercake}.\n"+
              "   #distance= [km][1..20].\n"+
-             "   #currentplace= {texastechuniversity}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
@@ -71,8 +70,6 @@
               "    braumsmenu(#restaurants,#icecreams).\n"+
               "    cheesecakefactorymenu(#restaurants,#cheesecakes).\n"+
               "    distancefromttu(#address, #distance).\n"+
-              "    nearbylocation(#currentplace, #address).\n"+
-              "    nearbylocationrestaurants(#restaurants).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -122,9 +119,6 @@
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
               "    braumsmenu(braums,X).\n"+
               "    cheesecakefactorymenu(cheesecakefactory,X).\n"+
-              "    nearbylocation(A,X):- distancefromttu(X,Y), Y<km5, Y>km3.\n"+
-              "   -nearbylocation(A,X):- not nearbylocation(A,X).\n"+
-              "    nearbylocationrestaurants(X) :- nearbylocation(A,Z),location(X,Y), Y=Z.\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
