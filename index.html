@@ -59,6 +59,9 @@
              "   #cost ={cheap,average,pricey}.\n"+
              "    #icecreams={browniefudge,chocolavacake, birthdaycake,germanchocolate,vanila,hotchocolate}.\n"+
              "    #cheesecakes={cookiescream, coconutfill, starwberrycake, raspberrycake,pumpkincake,peanutclustercake}.\n"+
+             "    #distance= [km][1..20].\n"+
+             "    #currentplace= {texastechuniversity}.\n"+
+            
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
@@ -67,7 +70,10 @@
               "    affordability(#restaurants, #cost).\n"+
               "    budgetfriendly(#restaurants).\n"+
               "    braumsmenu(#restaurants,#icecreams).\n"+
-              "    cheesecakefactorymenu(#restaurants,#cheesecakes).\n"+     
+              "    cheesecakefactorymenu(#restaurants,#cheesecakes).\n"+
+              "    distancefromttu(#address, #distance).\n"+
+              "    nearbylocation(#currentplace, #address).\n"+
+              "    nearbylocationrestaurants(#restaurants).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -106,11 +112,20 @@
               "    affordability(chickfila,cheap).\n"+
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
+              "    distancefromttu(sub,km2).\n"+
+              "    distancefromttu(street4,km4).\n"+
+              "    distancefromttu(street5,km8).\n"+
+              "    distancefromttu(street6, km10).\n"+
+              "    distancefromttu(street7,km15).\n"+
+              "    distancefromttu(street14,km20).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
               "    braumsmenu(braums,X).\n"+
               "    cheesecakefactorymenu(cheesecakefactory,X).\n"+
+              "    nearbylocation(A,X):- distancefromttu(X,Y), Y<km5, Y>km3.\n"+
+              "   -nearbylocation(A,X):- not nearbylocation(A,X).\n"+
+              "    nearbylocationrestaurants(X) :- nearbylocation(A,Z),location(X,Y), Y=Z.\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
