@@ -57,7 +57,7 @@
              "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
              "   #ambience = {funky,bad,average,good}.\n"+
              "   #cost ={cheap,average,pricey}.\n"+
-            "    #distance= [km][1..20].\n"+
+            "    #distance= 1..20.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
@@ -104,7 +104,7 @@
               "    affordability(chickfila,cheap).\n"+
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
-              "    distancefromttu(sub,km2).\n"+
+              "    distancefromttu(sub, 2).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
