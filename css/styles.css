@@ -3,7 +3,7 @@
     background: linear-gradient(to top, rgba(0,0,0,0)100%,rgba(0,0,0,0)100%), url(fooditem3.jpg);
     background-position: center;
     background-size: cover;
-    height: 200vh;
+    height: 300vh;
 }
 *{
   margin: 0;
