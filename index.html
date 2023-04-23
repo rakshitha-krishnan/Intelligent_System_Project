@@ -121,7 +121,7 @@
               "    popular(X):- rating(X,star5).\n"+
               "    popular(X):- rating(X,star4).\n"+
               "    popular(X):- vibe(X,good).\n"+
-              "    popular(X):- not popular(X).\n"+
+              "    -popular(X):- not popular(X).\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
