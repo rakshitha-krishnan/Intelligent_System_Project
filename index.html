@@ -65,7 +65,7 @@
               "    multipleoutlets(#restaurants).\n"+
               "    affordability(#restaurants, #cost).\n"+
               "    budgetfriendly(#restaurants).\n"+
-              "    distancefromttu(#address, #distance).\n"+
+              "    lengthttu(#address, #distance).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -104,7 +104,7 @@
               "    affordability(chickfila,cheap).\n"+
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
-              "    distancefromttu(sub, km2).\n"+
+              "    lengthttu(sub, km2).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
