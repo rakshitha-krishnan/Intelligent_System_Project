@@ -53,18 +53,14 @@
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
-             "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
-             "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
-             "    #ambience = {funky,bad,average,good}.\n"+
-             "    #distance= [km][1..20].\n"+
-             "    #currentplace= {texastechuniversity}.\n"+
+            "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
+             "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
+             "   #ambience = {funky,bad,average,good}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
               "    vibe(#restaurants, #ambience).\n"+
               "    multipleoutlets(#restaurants).\n"+
-              "    distancefromttu(#address, #distance).\n"+
-              "    nearbylocation(#currentplace, #address).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -83,12 +79,6 @@
               "    location(chickfila, street14).\n"+
               "    location(papajohns,street5).\n"+
               "    location(cheesecakefactory,street7).\n"+
-              "    distancefromttu(sub,km2).\n"+
-              "    distancefromttu(street4,km4).\n"+
-              "    distancefromttu(street5,km8).\n"+
-              "    distancefromttu(street6, km10).\n"+
-              "    distancefromttu(street7,km15).\n"+
-              "    distancefromttu(street14,km20).\n"+
               "    vibe(braums,good).\n"+
               "    vibe(ihop,good).\n"+
               "    vibe(royalindia,good).\n"+
@@ -101,9 +91,8 @@
               "    vibe(cheesecakefactory, good).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
-              "    nearbylocation(A,X):- distancefromttu(X,Y), Y<km5, Y>km3.\n"+
-              "    -nearbylocation(A,X):- not nearbylocation(A,X).\n"+
               "    starters(street4).";
+          
           
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
