@@ -54,60 +54,11 @@
         var editor = "sorts\n" +
              "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
             "    #address= {street4, street14, street5, street6, street7, sub}.\n"+
-            "    #ambience = {funky,bad,average,good}.\n"+
-            "    #cost ={cheap,average,pricey}.\n"+
-            "    #distance= [km][1..20].\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
-              "    starters(#address).\n"+
-              "    vibe(#restaurants, #ambience).\n"+
-              "    moneycharged(#restaurants, #cost).\n"+
-              "    distancefromttu(#address, #distance).\n"+
-            
+              "    starters(#address).\n"+    
             "rules\n" +
               "    location(braums,street4).\n"+
-              "    location(braums, street14).\n"+
-              "    location(ihop,street6).\n"+
-              "    location(royalindia, street5).\n"+
-              "    location(canes,street5).\n"+
-              "    location(canes,street6).\n"+
-              "    location(spankys, street14).\n"+
-              "    location(mcd,street5).\n"+
-              "    location(mcd,street6).\n"+
-              "    location(mcd,street7).\n"+
-              "    location(mcd, street4).\n"+
-              "    location(chipotle, street14).\n"+
-              "    location(chipotle, sub).\n"+
-              "    location(chickfila, sub).\n"+
-              "    location(chickfila, street14).\n"+
-              "    location(papajohns,street5).\n"+
-              "    location(cheesecakefactory,street7).\n"+
-              "    vibe(braums,good).\n"+
-              "    vibe(ihop,good).\n"+
-              "    vibe(royalindia,good).\n"+
-              "    vibe(canes,average).\n"+
-              "    vibe(spankys,funky).\n"+
-              "    vibe(mcd,average).\n"+
-              "    vibe(chipotle,average).\n"+
-              "    vibe(chickfila, good).\n"+
-              "    vibe(papajohns,bad).\n"+
-              "    vibe(cheesecakefactory, good).\n"+
-              "    moneycharged(braums,cheap).\n"+
-              "    moneycharged(ihop, average).\n"+
-              "    moneycharged(royalindia, average).\n"+
-              "    moneycharged(canes, cheap).\n"+
-              "    moneycharged(spankys, average).\n"+
-              "    moneycharged(mcd, cheap).\n"+
-              "    moneycharged(chipotle, pricey).\n"+
-              "    moneycharged(chickfila,cheap).\n"+
-              "    moneycharged(papajohns,cheap).\n"+
-              "    moneycharged(cheesecakefactory, pricey).\n"+
-              "    distancefromttu(sub,km2).\n"+
-              "    distancefromttu(street4,km4).\n"+
-              "    distancefromttu(street5,km8).\n"+
-              "    distancefromttu(street6, km10).\n"+
-              "    distancefromttu(street7,km15).\n"+
-              "    distancefromttu(street14,km20).\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
