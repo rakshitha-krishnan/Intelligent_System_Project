@@ -53,10 +53,11 @@
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
-              "    #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
+              "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
              "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
              "   #ambience = {funky,bad,average,good}.\n"+
              "   #cost ={cheap,average,pricey}.\n"+
+            "    #distance= [km][1..20].\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+    
@@ -64,6 +65,7 @@
               "    multipleoutlets(#restaurants).\n"+
               "    affordability(#restaurants, #cost).\n"+
               "    budgetfriendly(#restaurants).\n"+
+              "    distancefromttu(#address, #distance).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -102,6 +104,12 @@
               "    affordability(chickfila,cheap).\n"+
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
+              "    distancefromttu(sub,km2).\n"+
+              "    distancefromttu(street4,km4).\n"+
+              "    distancefromttu(street5,km8).\n"+
+              "    distancefromttu(street6, km10).\n"+
+              "    distancefromttu(street7,km15).\n"+
+              "    distancefromttu(street14,km20).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
