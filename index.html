@@ -119,7 +119,9 @@
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
               "    popular(X):- rating(X,star5).\n"+
+              "    popular(X):- rating(X,star4).\n"+
               "    -popular(X):- not popular(X).\n"+
+              "    popular(X):- vibe(X,good).\n"+
               "    starters(street4).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
