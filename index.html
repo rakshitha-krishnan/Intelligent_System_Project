@@ -55,10 +55,12 @@
         var editor = "sorts\n" +
               "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
               "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
+              "   #ambience = {funky,bad,average,good}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+  
               "    multipleoutlets(#restaurants).\n"+
+              "    vibe(#restaurants, #ambience).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -79,6 +81,16 @@
               "    location(cheesecakefactory,street7).\n"+
               "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
               "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
+              "    vibe(braums,good).\n"+
+              "    vibe(ihop,good).\n"+
+              "    vibe(royalindia,good).\n"+
+              "    vibe(canes,average).\n"+
+              "    vibe(spankys,funky).\n"+
+              "    vibe(mcd,average).\n"+
+              "    vibe(chipotle,average).\n"+
+              "    vibe(chickfila, good).\n"+
+              "    vibe(papajohns,bad).\n"+
+              "    vibe(cheesecakefactory, good).\n"+
               "    starters(street4).";
         // sorts
             
