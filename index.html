@@ -63,6 +63,7 @@
               "    multipleoutlets(#restaurants).\n"+
               "    vibe(#restaurants, #ambience).\n"+
               "    affordability(#restaurants, #cost).\n"+
+              "    budgetfriendly(#restaurants).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -103,6 +104,7 @@
               "    affordability(chickfila,cheap).\n"+
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
+              "    budgetfriendly(X):- affordability(X,cheap).\n"+
               "    starters(street4).";
         // sorts
             
