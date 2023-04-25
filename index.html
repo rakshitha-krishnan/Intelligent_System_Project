@@ -53,72 +53,16 @@
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
         var editor = "sorts\n" +
-             "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
-             "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
-             "   #ambience = {funky,bad,average,good}.\n"+
-             "   #cost ={cheap,average,pricey}.\n"+
-             "   #rated = {star5, star1, star4, star3,star2}.\n"+
-            "predicates\n" +
+              "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
+              "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
+             "predicates\n" +
               "    location(#restaurants,#address).\n"+
-              "    starters(#address).\n"+    
-              "    vibe(#restaurants, #ambience).\n"+
-              "    multipleoutlets(#restaurants).\n"+
-              "    affordability(#restaurants, #cost).\n"+
-              "    budgetfriendly(#restaurants).\n"+
-              "    rating(#restaurants, #rated).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
-              "    location(braums, street14).\n"+
-              "    location(ihop,street6).\n"+
-              "    location(royalindia, street5).\n"+
-              "    location(canes,street5).\n"+
-              "    location(canes,street6).\n"+
-              "    location(spankys, street14).\n"+
-              "    location(mcd,street5).\n"+
-              "    location(mcd,street6).\n"+
-              "    location(mcd,street7).\n"+
-              "    location(mcd, street4).\n"+
-              "    location(chipotle, street14).\n"+
-              "    location(chipotle, sub).\n"+
-              "    location(chickfila, sub).\n"+
-              "    location(chickfila, street14).\n"+
-              "    location(papajohns,street5).\n"+
-              "    location(cheesecakefactory,street7).\n"+
-              "    vibe(braums,good).\n"+
-              "    vibe(ihop,good).\n"+
-              "    vibe(royalindia,good).\n"+
-              "    vibe(canes,average).\n"+
-              "    vibe(spankys,funky).\n"+
-              "    vibe(mcd,average).\n"+
-              "    vibe(chipotle,average).\n"+
-              "    vibe(chickfila, good).\n"+
-              "    vibe(papajohns,bad).\n"+
-              "    vibe(cheesecakefactory, good).\n"+
-              "    rating(ihop, star5).\n"+
-              "    rating(braums,star4).\n"+
-              "    rating(royalindia,star3).\n"+
-              "    rating(chickfila,star4).\n"+
-              "    rating(chipotle,star5).\n"+
-              "    rating(papajohns,star3).\n"+
-              "    rating(mcd,star3).\n"+
-              "    rating(spankys,star3).\n"+
-              "    rating(canes,star4).\n"+
-              "    rating(cheesecakefactory,star5).\n".
-              "    affordability(braums,cheap).\n"+
-              "    affordability(ihop, average).\n"+
-              "    affordability(royalindia, average).\n"+
-              "    affordability(canes, cheap).\n"+
-              "    affordability(spankys, average).\n"+
-              "    affordability(mcd, cheap).\n"+
-              "    affordability(chipotle, pricey).\n"+
-              "    affordability(chickfila,cheap).\n"+
-              "    affordability(papajohns,cheap).\n"+
-              "    affordability(cheesecakefactory, pricey).\n"+
-              "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
-              "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
-              "    budgetfriendly(X):- affordability(X,cheap).\n"+
               "    starters(street4).";
         // sorts
+            
+            
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
         sortstring.splice(-1, 1);
