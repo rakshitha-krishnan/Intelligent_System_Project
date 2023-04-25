@@ -58,6 +58,7 @@
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+  
+              "    multipleoutlets(#restaurants).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -76,6 +77,8 @@
               "    location(chickfila, street14).\n"+
               "    location(papajohns,street5).\n"+
               "    location(cheesecakefactory,street7).\n"+
+              "    multipleoutlets(X):-  location(X, Y), location(X, Z), Y!=Z.\n"+
+              "   -multipleoutlets(X):-  not multipleoutlets(X).\n"+
               "    starters(street4).";
         // sorts
             
