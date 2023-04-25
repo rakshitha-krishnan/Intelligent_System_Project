@@ -56,11 +56,13 @@
               "   #restaurants = {ihop,braums,royalindia,canes,spankys,mcd,chipotle,chickfila,papajohns,cheesecakefactory}.\n"+
               "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
               "   #ambience = {funky,bad,average,good}.\n"+
+              "   #cost ={cheap,average,pricey}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+  
               "    multipleoutlets(#restaurants).\n"+
               "    vibe(#restaurants, #ambience).\n"+
+              "    affordability(#restaurants, #cost).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -91,6 +93,16 @@
               "    vibe(chickfila, good).\n"+
               "    vibe(papajohns,bad).\n"+
               "    vibe(cheesecakefactory, good).\n"+
+              "    affordability(braums,cheap).\n"+
+              "    affordability(ihop, average).\n"+
+              "    affordability(royalindia, average).\n"+
+              "    affordability(canes, cheap).\n"+
+              "    affordability(spankys, average).\n"+
+              "    affordability(mcd, cheap).\n"+
+              "    affordability(chipotle, pricey).\n"+
+              "    affordability(chickfila,cheap).\n"+
+              "    affordability(papajohns,cheap).\n"+
+              "    affordability(cheesecakefactory, pricey).\n"+
               "    starters(street4).";
         // sorts
             
