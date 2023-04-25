@@ -57,6 +57,7 @@
               "   #address= {street4, street14, street5, street6, street7, sub}.\n"+
               "   #ambience = {funky,bad,average,good}.\n"+
               "   #cost ={cheap,average,pricey}.\n"+
+              "   #icecreams={browniefudge,chocolavacake, birthdaycake,germanchocolate,vanila,hot_chocolate}.\n"+
             "predicates\n" +
               "    location(#restaurants,#address).\n"+
               "    starters(#address).\n"+  
@@ -64,6 +65,7 @@
               "    vibe(#restaurants, #ambience).\n"+
               "    affordability(#restaurants, #cost).\n"+
               "    budgetfriendly(#restaurants).\n"+
+              "    braumsmenu(#restaurants,#icecreams).\n"+
             "rules\n" +
               "    location(braums,street4).\n"+
               "    location(braums, street14).\n"+
@@ -105,6 +107,7 @@
               "    affordability(papajohns,cheap).\n"+
               "    affordability(cheesecakefactory, pricey).\n"+
               "    budgetfriendly(X):- affordability(X,cheap).\n"+
+              "    braumsmenu(braums,X).\n"+
               "    starters(street4).";
         // sorts
             
